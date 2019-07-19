@@ -1,6 +1,5 @@
 //clickSquare function
 
-const square = document.querySelector(".square");
 var playerOneTurn = true;
 var playerTwoTurn = false;
 
@@ -29,14 +28,16 @@ function changePlayer() {
     playerTwoTurn = !playerTwoTurn;
 }            
 
+//square.addEventListener('click', squareSelect, false);
+var table = document.getElementById("board");
+table.addEventListener("click", tableClick);
 
-
-square.addEventListener('click', squareSelect, false);
-1   `234WEDSXZ`
-var someInput = document.querySelector('input');
-someInput.addEventListener('click', myFunc, false);
-someInput.myParam = 'This is my parameter';
-function myFunc(evt) {
-    window.alert(evt.target.myParam);
+function tableClick(event) {
+    var element = event.target;
+    //var y = element.cellIndex;
+    //var x = element.parent.rowIndex;
+   // alert(element, x, y);
+    
 }
+
 

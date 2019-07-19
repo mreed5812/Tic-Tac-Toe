@@ -1,6 +1,7 @@
 
 .container {
-    padding: 10% 30% 30% 30%;
+    padding: 0% 30% 30% 30%;
+   
 }
 
 header {
@@ -14,34 +15,21 @@ table {
     border-collapse: collapse;
 }
 
-td {
-    width: 33.333%;
-    border: 6px solid #222;
+/**/
+#board td {
+    width: 80px;
+    height: 130px;
+    border: 5px solid #000000;
+    background: #FFFFFF;
+    font-size: 46pt;
+    font-family: arial;
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
 }
 
-td:hover{
+#board td:hover{
     background-color: lightgray;
 }
-    td::after {
-        content: "";
-        display: block;
-        margin-top: 100%;
-    }
-
-    td:first-of-type {
-        border-left-color: transparent;
-        border-top-color: transparent;
-    }
-
-    td:nth-of-type(2) {
-        border-top-color: transparent;
-    }
-
-    td:nth-of-type(3) {
-        border-right-color: transparent;
-        border-top-color: transparent;
-    }
-
-tr:nth-of-type(3) td {
-    border-bottom-color: transparent;
-}
+   
+ 
