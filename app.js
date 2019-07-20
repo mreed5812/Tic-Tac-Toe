@@ -30,22 +30,13 @@ function changePlayer() {
 
 //square.addEventListener('click', squareSelect, false);
 $('td').click(function(e) {
-    
+    //below gets index of td clicked
     var cell = $(this).closest('td');
     var cellIndex = cell[0].cellIndex
-
     var row = cell.closest('tr');
     var rowIndex = row[0].rowIndex;
-    alert(cellIndex);
-    alert(rowIndex);
-
-    //cellindex for x
-    //parent row index for y
-
-
-    var x = element.cellIndex;
-    console.log(element);
-    console.log(x);
+    var selectedCell = document.getElementById('board').rows[rowIndex].cells[cellIndex];
+    selectedCell.innerHTML = 'X';
  });
 
 
