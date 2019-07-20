@@ -29,15 +29,23 @@ function changePlayer() {
 }            
 
 //square.addEventListener('click', squareSelect, false);
-var table = document.getElementById("board");
-table.addEventListener("click", tableClick);
-
-function tableClick(event) {
-    var element = event.target;
-    //var y = element.cellIndex;
-    //var x = element.parent.rowIndex;
-   // alert(element, x, y);
+$('td').click(function(e) {
     
-}
+    var cell = $(this).closest('td');
+    var cellIndex = cell[0].cellIndex
+
+    var row = cell.closest('tr');
+    var rowIndex = row[0].rowIndex;
+    alert(cellIndex);
+    alert(rowIndex);
+
+    //cellindex for x
+    //parent row index for y
+
+
+    var x = element.cellIndex;
+    console.log(element);
+    console.log(x);
+ });
 
 
