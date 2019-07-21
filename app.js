@@ -1,32 +1,31 @@
+
 //clickSquare function
 
 var playerOneTurn = true;
 var playerTwoTurn = false;
+var playerOneMarker = "X";
+var playerTwoMarker = "O";
 
-function squareSelect() {
-    if (playerOneTurn) {
-        //put X in selected square;
-        //check if game won
-        //switch to player2
-    } else {
-        //It's player 2's turn
-        //put O in selected square
-        //check if game won
-        //switch to player 1
-
-    }
-}
-
-function markSquare() {
+function markSquare(selectedCell) {
     //mark square with 'X' or 'O'
-    var sqrValue;
-    changePlayer();
+    if (selectedCell.innerHTML == "") {
+        if (playerOneTurn) {
+            selectedCell.innerHTML = playerOneMarker;
+        }
+        else {
+            selectedCell.innerHTML = playerTwoMarker
+        }
+    } 
 }
 
 function changePlayer() {
     playerOneTurn = !playerOneTurn;
     playerTwoTurn = !playerTwoTurn;
 }            
+
+function winnerDetection() {
+
+}
 
 //square.addEventListener('click', squareSelect, false);
 $('td').click(function(e) {
@@ -35,8 +34,15 @@ $('td').click(function(e) {
     var cellIndex = cell[0].cellIndex
     var row = cell.closest('tr');
     var rowIndex = row[0].rowIndex;
+
+    console.log(cellIndex);
+    console.log(rowIndex);
     var selectedCell = document.getElementById('board').rows[rowIndex].cells[cellIndex];
-    selectedCell.innerHTML = 'X';
- });
+    markSquare(selectedCell);
+    var testCellSelection = document.getElementById('board').rows[1].cells[2];
+    testCellSelection.innerHTML = "yes";
+    //winnerDetection();
+    //changePlayer();
+});
 
-
+const winningCombos = [];
