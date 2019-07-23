@@ -1,6 +1,3 @@
-
-//clickSquare function
-
 var playerOneTurn = true;
 var playerTwoTurn = false;
 var playerOneMarker = "X";
@@ -20,7 +17,7 @@ var winningCombos = [
     //winning diagonals
     [0, 4, 8],
     [2, 4, 6]
-]
+];
 
 function markSquare(selectedCell) {
     //mark square with 'X' or 'O'
@@ -34,14 +31,17 @@ function markSquare(selectedCell) {
     } 
 }
 
-function changePlayer() {
-    playerOneTurn = !playerOneTurn;
-    playerTwoTurn = !playerTwoTurn;
+function updatePlayerTurn() {
     if (playerOneTurn) {
         playerStatus.innerHTML = "Player 1";
     } else {
         playerStatus.innerHTML = "Player 2";
     }
+}
+
+function changePlayer() {
+    playerOneTurn = !playerOneTurn;
+    playerTwoTurn = !playerTwoTurn;
 }            
 
 function winnerDetection() {
@@ -51,7 +51,7 @@ function winnerDetection() {
 
     for (var i = 0; i < 3; i++) {
         for (var j = 0; j < 3; j++) {
-            
+  
             tableStatus.push(document.getElementById("board").rows[i].cells[j].innerHTML);
             //console.log(document.getElementById("board").rows[i].cells[j].innerHTML);
         }
@@ -73,6 +73,8 @@ $('td').click(function(e) {
         markSquare(selectedCell);
         changePlayer();
         winnerDetection();
+        updatePlayerTurn();
+        
     }
 });
 
