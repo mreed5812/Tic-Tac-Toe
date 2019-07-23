@@ -31,5 +31,13 @@ table {
 #board td:hover{
     background-color: lightgray;
 }
-   
+
+#playerTurn {
+    font-size: 3em;
+    font-family: arial;
+    font-weight: bold;
+}
+
+
+
  
