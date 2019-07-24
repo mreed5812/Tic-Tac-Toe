@@ -45,16 +45,52 @@ function changePlayer() {
 }            
 
 function winnerDetection() {
-    var x = document.getElementById("board").rows[0].cells.length;
-    var gameTable = document.getElementById("board");
+
+    //reset array to empty
     tableStatus = [];
 
+    //add all the td values to tableStatus array
+
+    //iterate through rows
     for (var i = 0; i < 3; i++) {
+        //iterate through columns
         for (var j = 0; j < 3; j++) {
-  
             tableStatus.push(document.getElementById("board").rows[i].cells[j].innerHTML);
-            //console.log(document.getElementById("board").rows[i].cells[j].innerHTML);
         }
+    }
+
+    //iterate through all arrays within collection
+  
+    for (var i = 0; i < winningCombos.length; i++) {
+        
+        //[row][col]
+        var tempArray = [];
+        for (var j = 0; j < winningCombos[i].length; j++) {
+           
+            tempArray.push(winningCombos[i][j]);
+            //console.log(tempArray); 
+        }
+
+        //set player marker to check in cells
+        var checkMarker;
+        if (!playerOneTurn) {
+            checkMarker = "X";
+        } else {
+            checkMarker = "O";
+        }
+        //check tempArray (a winning combo) to tableStatus array
+        var counter = 0;
+        for (var k = 0; k < tempArray.length; k++) {
+            var cellValue = tableStatus[tempArray[k]]
+            //console.log(cellValue);
+            if (cellValue == checkMarker) {
+                counter++;
+            }
+        }
+
+        if (counter == 3) {
+            console.log("game over");
+        }   
     }
 }
 
