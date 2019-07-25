@@ -4,6 +4,10 @@ var playerOneMarker = "X";
 var playerTwoMarker = "O";
 var tableStatus = [];
 var playerStatus = document.getElementById("playerTurn");
+var gameOver = false;
+var tieGame = false;
+
+//document.location.reload(true);
 
 var winningCombos = [
     //winning rows
@@ -73,7 +77,7 @@ function winnerDetection() {
 
         //set player marker to check in cells
         var checkMarker;
-        if (!playerOneTurn) {
+        if (playerOneTurn) {
             checkMarker = "X";
         } else {
             checkMarker = "O";
@@ -88,9 +92,23 @@ function winnerDetection() {
             }
         }
 
+        //if winning array combos contains 3 of the same marker
         if (counter == 3) {
-            console.log("game over");
+            gameOver = true;
+
+            if (playerOneTurn) {
+                alert("Player One Wins!!!");
+                document.location.reload(true);
+            } else {
+                alert("Player Two Wins!!!");
+                document.location.reload(true);
+            }
         }   
+    }
+
+    if (stalemate()) {
+        alert("Tie Game");
+        document.location.reload(true);
     }
 }
 
@@ -106,11 +124,20 @@ $('td').click(function(e) {
 
     //check if square already marked
     if (selectedCell.innerHTML == "") {
-        markSquare(selectedCell);
-        changePlayer();
-        winnerDetection();
-        updatePlayerTurn();
-        
+        markSquare(selectedCell);  
     }
+
+    winnerDetection();
+    changePlayer();
+    updatePlayerTurn();
 });
+
+function stalemate() {
+    for (var i = 0; i < 9; i++) {
+        if (tableStatus[i] == "") {
+            return false;
+        }
+    }
+    return true;
+}
 
