@@ -64,7 +64,6 @@ function winnerDetection() {
     }
 
     //iterate through all arrays within collection
-  
     for (var i = 0; i < winningCombos.length; i++) {
         
         //[row][col]
@@ -106,7 +105,7 @@ function winnerDetection() {
         }   
     }
 
-    if (stalemate()) {
+    if (!gameOver && stalemate()) {
         alert("Tie Game");
         document.location.reload(true);
     }
