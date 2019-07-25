@@ -141,3 +141,7 @@ function stalemate() {
     return true;
 }
 
+$("#reset").click(function () {
+    document.location.reload(true);
+});
+
