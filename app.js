@@ -48,11 +48,7 @@ function changePlayer() {
     playerTwoTurn = !playerTwoTurn;
 }            
 
-function winnerDetection() {
-
-    //reset array to empty
-    tableStatus = [];
-
+function updateTableArray() {
     //add all the td values to tableStatus array
 
     //iterate through rows
@@ -63,6 +59,15 @@ function winnerDetection() {
         }
     }
 
+}
+
+function winnerDetection() {
+
+    //reset array to empty
+    tableStatus = [];
+
+    updateTableArray();
+   
     //iterate through all arrays within collection
     for (var i = 0; i < winningCombos.length; i++) {
         
